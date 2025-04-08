@@ -77,16 +77,16 @@ echo "source $PWD/tabmit-autocomplete.zsh" >> ~/.zshrc
 
 You can customize Tabmit's behavior using the following environment variables(see `tabmit-env.sample`):
 
-| Variable                         | Description                                                  | Default                                                       |
-| -------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------- |
-| `OPENAI_API_KEY`                 | Your OpenAI API key                                          | **(required)**                                                |
-| `OPENAI_MODEL`                   | OpenAI model to use (e.g., `gpt-4o`, `gpt-3.5-turbo`)        | `gpt-4o`                                                      |
-| `OPENAI_API_URL`                 | URL for the OpenAI API endpoint                              | `https://api.openai.com/v1/chat/completions`                  |
-| `OPENAI_TEMPERATURE`             | Sampling temperature (0.0–1.0, higher = more creative)       | `0.7`                                                         |
-| `OPENAI_MAX_TOKENS`              | Maximum number of tokens in response                         | `1024`                                                        |
-| `GPT_COMMIT_MSG_LANGUAGE`        | Language for the generated commit message (e.g., `en`, `ko`) | `en`                                                          |
-| `GPT_COMMIT_MSG_SOFT_MAX_LENGTH` | Preferred character limit for commit message                 | `60`                                                          |
-| `GPT_COMMIT_MSG_HARD_MAX_LENGTH` | Absolute max length for the commit message                   | `80`                                                          |
-| `GPT_COMMIT_MSG_TEMPLATE`        | Commit style guide / format (e.g., Conventional Commits)     | `feat\|fix\|chore\|refactor\|test\|style\|docs\|...: message` |
-| `GPT_COMMIT_MSG_INSTRUCTIONS`    | Detailed GPT instructions for formatting and tone            | One-liner, no period, clear and concise                       |
-| `GPT_COMMIT_MSG_PROMPT_TEMPLATE` | Full prompt template used for GPT request                    | Built-in default prompt template                              |
+| Variable                 | Description                                                  | Default                                                       |
+| ------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------- |
+| `OPENAI_API_KEY`         | Your OpenAI API key                                          | **(required)**                                                |
+| `OPENAI_MODEL`           | OpenAI model to use (e.g., `gpt-4o`, `gpt-3.5-turbo`)        | `gpt-4o`                                                      |
+| `OPENAI_API_URL`         | URL for the OpenAI API endpoint                              | `https://api.openai.com/v1/chat/completions`                  |
+| `OPENAI_TEMPERATURE`     | Sampling temperature (0.0–1.0, higher = more creative)       | `0.7`                                                         |
+| `OPENAI_MAX_TOKENS`      | Maximum number of tokens in response                         | `1024`                                                        |
+| `TABMIT_LANGUAGE`        | Language for the generated commit message (e.g., `en`, `ko`) | `en`                                                          |
+| `TABMIT_SOFT_MAX_LENGTH` | Preferred character limit for commit message                 | `60`                                                          |
+| `TABMIT_HARD_MAX_LENGTH` | Absolute max length for the commit message                   | `80`                                                          |
+| `TABMIT_TEMPLATE`        | Commit style guide / format (e.g., Conventional Commits)     | `feat\|fix\|chore\|refactor\|test\|style\|docs\|...: message` |
+| `TABMIT_INSTRUCTIONS`    | Detailed GPT instructions for formatting and tone            | One-liner, no period, clear and concise                       |
+| `TABMIT_PROMPT_TEMPLATE` | Full prompt template used for GPT request                    | Built-in default prompt template                              |
