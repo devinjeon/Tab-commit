@@ -1,4 +1,4 @@
-module gpt-commit-msg
+module tabmit
 
 go 1.23.2
 
