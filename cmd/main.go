@@ -121,32 +121,32 @@ func getCompletion(prompt string) (string, error) {
 
 func main() {
 	softMaxLength := defaultSoftMaxLength
-	if softMaxLengthEnv := os.Getenv("TABMIT_SOFT_MAX_LENGTH"); softMaxLengthEnv != "" {
+	if softMaxLengthEnv := os.Getenv("TAB_COMMIT_SOFT_MAX_LENGTH"); softMaxLengthEnv != "" {
 		softMaxLength = softMaxLengthEnv
 	}
 
 	hardMaxLength := defaultHardMaxLength
-	if hardMaxLengthEnv := os.Getenv("TABMIT_HARD_MAX_LENGTH"); hardMaxLengthEnv != "" {
+	if hardMaxLengthEnv := os.Getenv("TAB_COMMIT_HARD_MAX_LENGTH"); hardMaxLengthEnv != "" {
 		hardMaxLength = hardMaxLengthEnv
 	}
 
 	language := defaultLanguage
-	if languageEnv := os.Getenv("TABMIT_LANGUAGE"); languageEnv != "" {
+	if languageEnv := os.Getenv("TAB_COMMIT_LANGUAGE"); languageEnv != "" {
 		language = languageEnv
 	}
 
 	instructions := defaultInstructions
-	if instructionsEnv := os.Getenv("TABMIT_INSTRUCTIONS"); instructionsEnv != "" {
+	if instructionsEnv := os.Getenv("TAB_COMMIT_INSTRUCTIONS"); instructionsEnv != "" {
 		instructions = instructionsEnv
 	}
 
 	commitMessageTemplate := defaultCommitMessageTemplate
-	if commitMessageTemplateEnv := os.Getenv("TABMIT_TEMPLATE"); commitMessageTemplateEnv != "" {
+	if commitMessageTemplateEnv := os.Getenv("TAB_COMMIT_TEMPLATE"); commitMessageTemplateEnv != "" {
 		commitMessageTemplate = commitMessageTemplateEnv
 	}
 
 	promptTemplate := defaultPromptTemplate
-	if promptTemplateEnv := os.Getenv("TABMIT_PROMPT_TEMPLATE"); promptTemplateEnv != "" {
+	if promptTemplateEnv := os.Getenv("TAB_COMMIT_PROMPT_TEMPLATE"); promptTemplateEnv != "" {
 		promptTemplate = promptTemplateEnv
 	}
 

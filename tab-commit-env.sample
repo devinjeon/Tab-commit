@@ -19,20 +19,20 @@ OPENAI_API_KEY=sk-...
 # OPENAI_MODEL is the model to use for the OpenAI API.
 # export OPENAI_MODEL=gpt-4o
 
-# TABMIT_LANGUAGE is the language to use for the commit message.
-# export TABMIT_LANGUAGE=en
+# TAB_COMMIT_LANGUAGE is the language to use for the commit message.
+# export TAB_COMMIT_LANGUAGE=en
 
-# TABMIT_SOFT_MAX_LENGTH is the soft maximum length of the commit message. (preferred)
-# export TABMIT_SOFT_MAX_LENGTH=60
+# TAB_COMMIT_SOFT_MAX_LENGTH is the soft maximum length of the commit message. (preferred)
+# export TAB_COMMIT_SOFT_MAX_LENGTH=60
 
-# TABMIT_HARD_MAX_LENGTH is the hard maximum length of the commit message. (required)
-# export TABMIT_HARD_MAX_LENGTH=80
+# TAB_COMMIT_HARD_MAX_LENGTH is the hard maximum length of the commit message. (required)
+# export TAB_COMMIT_HARD_MAX_LENGTH=80
 
-# TABMIT_TEMPLATE is the template for the commit message.
-# export TABMIT_TEMPLATE="feat|fix|chore|refactor|test|style|docs|...: some message"
+# TAB_COMMIT_TEMPLATE is the template for the commit message.
+# export TAB_COMMIT_TEMPLATE="feat|fix|chore|refactor|test|style|docs|...: some message"
 
-# TABMIT_INSTRUCTIONS is the instructions for generating the commit message.
-# export TABMIT_INSTRUCTIONS="
+# TAB_COMMIT_INSTRUCTIONS is the instructions for generating the commit message.
+# export TAB_COMMIT_INSTRUCTIONS="
 # * Be clear, simple, and concise
 # * remove articles if necessary
 # * Do not include a period at the end of the sentence

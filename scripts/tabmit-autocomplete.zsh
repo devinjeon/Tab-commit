@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-_tabmit() {
+_tab-commit() {
   if [[ $BUFFER == git\ commit\ -m\ * ]]; then
     local raw_input="${BUFFER#git commit -m }"
     local msg_prefix
@@ -17,7 +17,7 @@ _tabmit() {
     echo "msg_prefix: $msg_prefix" >> /tmp/gpt_commit_msg.log
     # Generate completion
     local completion
-    completion=$(tabmit "$msg_prefix" 2>/dev/null)
+    completion=$(tab-commit "$msg_prefix" 2>/dev/null)
     echo "completion: $completion" >> /tmp/gpt_commit_msg.log
 
     if [[ -n "$completion" ]]; then
@@ -42,5 +42,5 @@ _tabmit() {
   fi
 }
 
-zle -N _tabmit
-bindkey '^I' _tabmit
+zle -N _tab-commit
+bindkey '^I' _tab-commit
