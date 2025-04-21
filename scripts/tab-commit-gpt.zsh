@@ -8,28 +8,14 @@ _tab-commit-gpt() {
       return 0
     fi
 
-    local raw_input="${BUFFER#git commit -m }"
-    local msg_prefix
-    local quoted=false
-
-    # Remove starting quote if present
-    if [[ $raw_input == \"* ]]; then
-      quoted=true
-      msg_prefix="${raw_input#\"}"
-    else
-      msg_prefix="$raw_input"
-    fi
-
     # Generate completion
-    local completion
-    completion=$(tab-commit-gpt "$msg_prefix" 2>/dev/null)
+    completion=$(tab-commit-gpt "$BUFFER" 2>/dev/null)
 
     if [[ -n "$completion" ]]; then
       local new_msg="${completion}"
-      local new_cmd="git commit -m \"${new_msg}\""
 
       # Replace the whole buffer and reposition the cursor
-      BUFFER="$new_cmd"
+      BUFFER="$completion"
       CURSOR=${#BUFFER}
       zle reset-prompt
       # remove autosuggest if present
