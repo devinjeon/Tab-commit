@@ -34,7 +34,8 @@ Commit message template:
 	defaultInstructions = `* Be clear, simple, and concise
 * remove articles if necessary
 * Do not include a period at the end of the sentence
-* MUST write *only* one-line commit message`
+* MUST write *only* one-line commit message
+* If part of the commit message is already written, continue from where it left off (and prefer follow the commit message template if possible)`
 	defaultCommitMessageTemplate = "feat|fix|chore|refactor|test|style|docs|...: some message"
 )
 
@@ -174,7 +175,6 @@ Please continue the commit message **starting from where it left off**, MUST not
 	prompt = strings.Replace(prompt, "{{instructions}}", instructions, -1)
 	prompt = strings.Replace(prompt, "{{commitMessageTemplate}}", commitMessageTemplate, -1)
 	prompt = strings.Replace(prompt, "{{existingCommitMsg}}", existingCommitMsg, -1)
-
 
 	completion, err := getCompletion(prompt)
 	if err != nil {
