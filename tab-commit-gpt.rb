@@ -10,7 +10,7 @@ class TabCommitGpt < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.1/tab-commit-gpt_v0.1.1_darwin_x86_64.tar.gz"
-      sha256 "583ca84b4d9131b7f6dc20b0fa074eed663d7b5772f2a814c5934cf39e28b170"
+      sha256 "e582761c2ca716e68879259b8ab4d54cb0a4d48bb7e3123f3ac27584d3486cf7"
 
       def install
         bin.install "tab-commit-gpt"
@@ -19,7 +19,7 @@ class TabCommitGpt < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.1/tab-commit-gpt_v0.1.1_darwin_arm64.tar.gz"
-      sha256 "5bd249f46212ff22d3293fefad22b45f085f96c7e7242c9f184e07a4a57219c0"
+      sha256 "5262913313a19add86b9e8fecea3268b950c9c0b4019b0ae4e12d9fd59eeb4b3"
 
       def install
         bin.install "tab-commit-gpt"
@@ -32,7 +32,7 @@ class TabCommitGpt < Formula
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
         url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.1/tab-commit-gpt_v0.1.1_linux_x86_64.tar.gz"
-        sha256 "97729bd234d63eaf2492604e764835d07791908075a6b3f8a9ab1c95a6fcead8"
+        sha256 "2330b4e403e9a4339e0613a2e0b6f429202debc10c839e33372f76d5828e5b52"
 
         def install
           bin.install "tab-commit-gpt"
@@ -43,7 +43,7 @@ class TabCommitGpt < Formula
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
         url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.1/tab-commit-gpt_v0.1.1_linux_arm64.tar.gz"
-        sha256 "006294a0d6169cc17d393291f78e60ca7bdd7d98c08613c20665117e106ab169"
+        sha256 "ce98512573ad873e674f5c2582d24775ed6ffc2eaf1a8cad038d5fb09606fbb4"
 
         def install
           bin.install "tab-commit-gpt"
