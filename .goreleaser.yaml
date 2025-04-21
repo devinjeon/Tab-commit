@@ -1,0 +1,52 @@
+project_name: tab-commit
+
+release:
+  github:
+    owner: devinjeon
+    name: tab-commit
+
+builds:
+  - id: tab-commit
+    main: ./cmd
+    goos:
+    - linux
+    - darwin
+    - windows
+    goarch:
+    - amd64
+    - arm64
+    env:
+      - CGO_ENABLED=0
+    ldflags: "-X main.version={{ .Tag }}"
+    binary: tab-commit
+
+archives:
+  - id: tab-commit
+    builds:
+      - tab-commit
+    files:
+      - scripts/tab-commit-autocomplete.zsh
+    format: tar.gz
+    format_overrides:
+      - goos: windows
+        format: zip
+    replacements:
+      amd64: x86_64
+    name_template: "{{ .Binary }}_{{ .Tag }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: "{{ .ProjectName }}_checksums.txt"
+  algorithm: sha256
+
+brews:
+  - tap:
+      owner: devinjeon
+      name: tab-commit
+      branch: "{{ .Tag }}"
+      pull_request:
+        enabled: true
+    commit_author:
+      name: Hyojun Jeon
+      email: jeon@hyojun.me
+    description: "tab-commit is a simplest way to generate commit messages — just press `<Tab>` after `git commit -m`."
+    homepage: https://github.com/devinjeon/tab-commit
