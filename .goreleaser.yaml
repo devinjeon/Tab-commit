@@ -41,8 +41,7 @@ brews:
       name: tab-commit-gpt
       pull_request:
         enabled: true
-    caveats: # source scripts/tab-commit-gpt.zsh
-      - |
-        To use tab-commit-gpt-completion, add the following line to your .zshrc:
+    caveats: |
+        To use tab-commit-gpt, add the following line to your .zshrc:
 
         $ source "$(brew --prefix)/opt/tab-commit-gpt/scripts/tab-commit-gpt.sh" >> ~/.zshrc
