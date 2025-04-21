@@ -44,4 +44,4 @@ brews:
     caveats: |
         To use tab-commit-gpt, add the following line to your .zshrc:
 
-        $ source "$(brew --prefix)/opt/tab-commit-gpt/scripts/tab-commit-gpt.sh" >> ~/.zshrc
+        $ echo "source \"$(brew --prefix tab-commit-gpt)/scripts/tab-commit-gpt.sh\"" >> ~/.zshrc
