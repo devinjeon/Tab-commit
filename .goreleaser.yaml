@@ -43,10 +43,10 @@ brews:
         enabled: true
     install: |
       bin.install "tab-commit-gpt"
-      bin.install "scripts/tab-commit-gpt.sh"
+      bin.install "scripts/tab-commit-gpt.zsh"
     post_install: |
       zshrc = File.expand_path("~/.zshrc")
-      script_line = "source \"#{HOMEBREW_PREFIX}/opt/tab-commit-gpt/scripts/tab-commit-gpt.sh\""
+      script_line = "source \"#{HOMEBREW_PREFIX}/opt/tab-commit-gpt/scripts/tab-commit-gpt.zsh\""
       if File.writable?(zshrc)
         content = File.read(zshrc) rescue ""
         unless content.include?(script_line)
@@ -64,4 +64,4 @@ brews:
     caveats: |-
       To use tab-commit-gpt, add the following line to your .zshrc:
 
-      $ echo "source \"$(brew --prefix tab-commit-gpt)/scripts/tab-commit-gpt.sh\"" >> ~/.zshrc
+      $ echo "source \"$(brew --prefix tab-commit-gpt)/scripts/tab-commit-gpt.zsh\"" >> ~/.zshrc
