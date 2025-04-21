@@ -20,7 +20,7 @@ While many commit message generators offer a wide range of commands and interfac
 ### 1. Generate a message from scratch
 
 ```plaintext
-# git add "<your files>"
+# git add <your files>
 git commit -m
 #             ↑ at this point, press Tab
 ```
@@ -56,7 +56,7 @@ brew install tab-commit-gpt
 ### 2. Enable the Tab-commit-gpt auto-completion
 
 ```bash
-echo "source \"$(brew --prefix tab-commit-gpt)/scripts/tab-commit-gpt.sh\"" >> ~/.zshrc
+echo "source \"$(brew --prefix)/etc/tab-commit-gpt.zsh\"" >> ~/.zshrc
 ```
 
 ## Configuration
