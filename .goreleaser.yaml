@@ -33,8 +33,8 @@ brews:
     commit_author:
       name: Hyojun Jeon
       email: jeon@hyojun.me
-    description: "tab-commit-gpt is a simplest way to generate commit messages — just
-      press `<Tab>` after `git commit -m`."
+    description: tab-commit-gpt is a simplest way to generate commit messages — just
+      press `<Tab>` after `git commit -m`.
     homepage: https://github.com/devinjeon/tab-commit-gpt
     repository:
       owner: devinjeon
@@ -45,9 +45,22 @@ brews:
       bin.install "tab-commit-gpt"
       bin.install "scripts/tab-commit-gpt.sh"
     post_install: |
-      (echo "source \"$(brew --prefix tab-commit-gpt)/scripts/tab-commit-gpt.sh\"" >> ~/.zshrc) ||
-        echo 'To use tab-commit-gpt, add the following line to your .zshrc:
-        $ echo "source \"$(brew --prefix tab-commit-gpt)/scripts/tab-commit-gpt.sh\"" >> ~/.zshrc'
+      zshrc = File.expand_path("~/.zshrc")
+      script_line = "source \"#{HOMEBREW_PREFIX}/opt/tab-commit-gpt/scripts/tab-commit-gpt.sh\""
+      if File.writable?(zshrc)
+        content = File.read(zshrc) rescue ""
+        unless content.include?(script_line)
+          File.open(zshrc, "a") do |f|
+            f.puts "\n# Added by tab-commit-gpt"
+            f.puts script_line
+          end
+          ohai "Added tab-commit-gpt to ~/.zshrc"
+        end
+      else
+        opoo "~/.zshrc is not writable. Please run the following command to add tab-commit-gpt to your .zshrc:"
+        puts
+        puts "  echo '#{script_line}' >> ~/.zshrc"
+      end
     caveats: |-
       To use tab-commit-gpt, add the following line to your .zshrc:
 
