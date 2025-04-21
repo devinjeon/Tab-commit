@@ -1,4 +1,4 @@
-module tabcommit
+module tabcommitgpt
 
 go 1.23.2
 

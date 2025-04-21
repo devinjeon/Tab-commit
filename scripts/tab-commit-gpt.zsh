@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-_tab-commit() {
+_tab-commit-gpt() {
   if [[ $BUFFER == git\ commit\ -m\ * ]]; then
     local raw_input="${BUFFER#git commit -m }"
     local msg_prefix
@@ -16,7 +16,7 @@ _tab-commit() {
 
     # Generate completion
     local completion
-    completion=$(tab-commit "$msg_prefix" 2>/dev/null)
+    completion=$(tab-commit-gpt "$msg_prefix" 2>/dev/null)
 
     if [[ -n "$completion" ]]; then
       local new_msg="${completion}"
@@ -40,5 +40,5 @@ _tab-commit() {
 
 # This is a temporary workaround for auto completion behavior instead of using compadd
 # compadd is not working as expected when input commit message is not closed with a double quote
-zle -N _tab-commit
-bindkey '^I' _tab-commit
+zle -N _tab-commit-gpt
+bindkey '^I' _tab-commit-gpt

@@ -1,20 +1,20 @@
 ---
 version: 2
-project_name: tab-commit
+project_name: tab-commit-gpt
 release:
   github:
     owner: devinjeon
-    name: tab-commit
+    name: tab-commit-gpt
 builds:
-  - id: tab-commit
+  - id: tab-commit-gpt
     main: ./cmd
     goos: [linux, darwin, windows]
     goarch: [amd64, arm64]
     env: [CGO_ENABLED=0]
     ldflags: ['-X main.version={{ .Tag }}']
-    binary: tab-commit
+    binary: tab-commit-gpt
 archives:
-  - id: tab-commit
+  - id: tab-commit-gpt
     files: [scripts/*]
     formats: [tar.gz]
     format_overrides:
@@ -29,20 +29,20 @@ checksum:
   name_template: '{{ .ProjectName }}_checksums.txt'
   algorithm: sha256
 brews:
-  - name: tab-commit
+  - name: tab-commit-gpt
     commit_author:
       name: Hyojun Jeon
       email: jeon@hyojun.me
-    description: tab-commit is a simplest way to generate commit messages — just press
+    description: tab-commit-gpt is a simplest way to generate commit messages — just press
       `<Tab>` after `git commit -m`.
-    homepage: https://github.com/devinjeon/tab-commit
-    # TODO(devinjeon)
-    # install: |
-    #   bin.install "tab-commit"
-    #   zsh_completion.install "scripts/tab-commit-completion.zsh" => "_tab-commit"
-    #   bash_completion.install "scripts/tab-commit-completion.bash" => "tab-commit"
+    homepage: https://github.com/devinjeon/tab-commit-gpt
     repository:
       owner: devinjeon
-      name: tab-commit
+      name: tab-commit-gpt
       pull_request:
         enabled: true
+    caveats: # source scripts/tab-commit-gpt.zsh
+      - |
+        To use tab-commit-gpt-completion, add the following line to your .zshrc:
+
+        $ source "$(brew --prefix)/opt/tab-commit-gpt/scripts/tab-commit-gpt.sh" >> ~/.zshrc
