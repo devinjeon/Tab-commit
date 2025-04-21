@@ -10,7 +10,7 @@ class TabCommitGpt < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.1/tab-commit-gpt_v0.1.1_darwin_x86_64.tar.gz"
-      sha256 "e582761c2ca716e68879259b8ab4d54cb0a4d48bb7e3123f3ac27584d3486cf7"
+      sha256 "2f11e86da285b83f74f5167518c8b56a720b3c37fe6e1075ea610103d762ef80"
 
       def install
         bin.install "tab-commit-gpt"
@@ -19,7 +19,7 @@ class TabCommitGpt < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.1/tab-commit-gpt_v0.1.1_darwin_arm64.tar.gz"
-      sha256 "5262913313a19add86b9e8fecea3268b950c9c0b4019b0ae4e12d9fd59eeb4b3"
+      sha256 "d6861c897c7adbe6e218b815a204f11f9c5ecfa74923192eae2582fe0d4d6d11"
 
       def install
         bin.install "tab-commit-gpt"
@@ -32,7 +32,7 @@ class TabCommitGpt < Formula
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
         url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.1/tab-commit-gpt_v0.1.1_linux_x86_64.tar.gz"
-        sha256 "2330b4e403e9a4339e0613a2e0b6f429202debc10c839e33372f76d5828e5b52"
+        sha256 "5cd870328d04e054ead4f2ecf1cb725c9a1868640e7468282d175161c9f8eeb9"
 
         def install
           bin.install "tab-commit-gpt"
@@ -43,7 +43,7 @@ class TabCommitGpt < Formula
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
         url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.1/tab-commit-gpt_v0.1.1_linux_arm64.tar.gz"
-        sha256 "ce98512573ad873e674f5c2582d24775ed6ffc2eaf1a8cad038d5fb09606fbb4"
+        sha256 "656022eefd92ce056a4feca1aebe859b6877d397289075e22d4dac43241e0767"
 
         def install
           bin.install "tab-commit-gpt"
@@ -54,9 +54,22 @@ class TabCommitGpt < Formula
   end
 
   def post_install
-    (echo "source \"$(brew --prefix tab-commit-gpt)/scripts/tab-commit-gpt.sh\"" >> ~/.zshrc) ||
-      echo 'To use tab-commit-gpt, add the following line to your .zshrc:
-      $ echo "source \"$(brew --prefix tab-commit-gpt)/scripts/tab-commit-gpt.sh\"" >> ~/.zshrc'
+    zshrc = File.expand_path("~/.zshrc")
+    script_line = "source \"#{HOMEBREW_PREFIX}/opt/tab-commit-gpt/scripts/tab-commit-gpt.sh\""
+    if File.writable?(zshrc)
+      content = File.read(zshrc) rescue ""
+      unless content.include?(script_line)
+        File.open(zshrc, "a") do |f|
+          f.puts "\n# Added by tab-commit-gpt"
+          f.puts script_line
+        end
+        ohai "Added tab-commit-gpt to ~/.zshrc"
+      end
+    else
+      opoo "~/.zshrc is not writable. Please run the following command to add tab-commit-gpt to your .zshrc:"
+      puts
+      puts "  echo '#{script_line}' >> ~/.zshrc"
+    end
   end
 
   def caveats
