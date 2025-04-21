@@ -1,3 +1,5 @@
+version: 2
+
 project_name: tab-commit
 
 release:
@@ -9,15 +11,16 @@ builds:
   - id: tab-commit
     main: ./cmd
     goos:
-    - linux
-    - darwin
-    - windows
+      - linux
+      - darwin
+      - windows
     goarch:
-    - amd64
-    - arm64
+      - amd64
+      - arm64
     env:
       - CGO_ENABLED=0
-    ldflags: "-X main.version={{ .Tag }}"
+    ldflags:
+      - "-X main.version={{ .Tag }}"
     binary: tab-commit
 
 archives:
@@ -26,27 +29,36 @@ archives:
       - tab-commit
     files:
       - scripts/tab-commit-autocomplete.zsh
-    format: tar.gz
+    formats:
+      - tar.gz
     format_overrides:
       - goos: windows
-        format: zip
-    replacements:
-      amd64: x86_64
-    name_template: "{{ .Binary }}_{{ .Tag }}_{{ .Os }}_{{ .Arch }}"
+        formats:
+          - zip
+    # 'replacements:' is deprecated.
+    # Use Go template logic within 'name_template' instead.
+    name_template: '{{ .Binary }}_{{ .Tag }}_{{ .Os }}_{{ if eq .Arch "amd64" }}x86_64{{ else }}{{ .Arch }}{{ end }}'
 
 checksum:
   name_template: "{{ .ProjectName }}_checksums.txt"
   algorithm: sha256
 
+
 brews:
-  - tap:
-      owner: devinjeon
-      name: tab-commit
-      branch: "{{ .Tag }}"
-      pull_request:
-        enabled: true
     commit_author:
       name: Hyojun Jeon
       email: jeon@hyojun.me
+
     description: "tab-commit is a simplest way to generate commit messages — just press `<Tab>` after `git commit -m`."
     homepage: https://github.com/devinjeon/tab-commit
+
+    install: |
+      bin.install "tab-commit"
+
+    # TODO: zsh_completion.install "scripts/tab-commit-autocomplete.zsh" => "_tab-commit"
+    # TODO: bash_completion.install "scripts/tab-commit-autocomplete.bash" => "tab-commit"
+    repository:
+      owner: devinjeon
+      name: tab-commit
+      pull_request:
+        enabled: true
