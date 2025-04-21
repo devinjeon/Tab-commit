@@ -85,9 +85,9 @@ You can customize Tab-commit's behavior using the following environment variable
 | `OPENAI_API_URL`             | URL for the OpenAI API endpoint                              | `https://api.openai.com/v1/chat/completions`                  |
 | `OPENAI_TEMPERATURE`         | Sampling temperature (0.0–1.0, higher = more creative)       | `0.7`                                                         |
 | `OPENAI_MAX_TOKENS`          | Maximum number of tokens in response                         | `1024`                                                        |
-| `tab-commit_LANGUAGE`        | Language for the generated commit message (e.g., `en`, `ko`) | `en`                                                          |
-| `tab-commit_SOFT_MAX_LENGTH` | Preferred character limit for commit message                 | `60`                                                          |
-| `tab-commit_HARD_MAX_LENGTH` | Absolute max length for the commit message                   | `80`                                                          |
-| `tab-commit_TEMPLATE`        | Commit style guide / format (e.g., Conventional Commits)     | `feat\|fix\|chore\|refactor\|test\|style\|docs\|...: message` |
-| `tab-commit_INSTRUCTIONS`    | Detailed GPT instructions for formatting and tone            | One-liner, no period, clear and concise                       |
-| `tab-commit_PROMPT_TEMPLATE` | Full prompt template used for GPT request                    | Built-in default prompt template                              |
+| `TAB_COMMIT_LANGUAGE`        | Language for the generated commit message (e.g., `en`, `ko`) | `en`                                                          |
+| `TAB_COMMIT_SOFT_MAX_LENGTH` | Preferred character limit for commit message                 | `60`                                                          |
+| `TAB_COMMIT_HARD_MAX_LENGTH` | Absolute max length for the commit message                   | `80`                                                          |
+| `TAB_COMMIT_TEMPLATE`        | Commit style guide / format (e.g., Conventional Commits)     | `feat\|fix\|chore\|refactor\|test\|style\|docs\|...: message` |
+| `TAB_COMMIT_INSTRUCTIONS`    | Detailed GPT instructions for formatting and tone            | One-liner, no period, clear and concise                       |
+| `TAB_COMMIT_PROMPT_TEMPLATE` | Full prompt template used for GPT request                    | Built-in default prompt template                              |
