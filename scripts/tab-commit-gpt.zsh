@@ -2,6 +2,12 @@
 
 _tab-commit-gpt() {
   if [[ $BUFFER == git\ commit\ -m\ * ]]; then
+    # Check OPENAI_API_KEY
+    if [[ -z "$OPENAI_API_KEY" ]]; then
+      zle -M "The OPENAI_API_KEY is not set. Please refer to the guide for setup instructions: https://github.com/devinjeon/Tab-commit-gpt#configuration"
+      return 0
+    fi
+
     local raw_input="${BUFFER#git commit -m }"
     local msg_prefix
     local quoted=false
