@@ -5,12 +5,12 @@
 class TabCommitGpt < Formula
   desc "tab-commit-gpt is a simplest way to generate commit messages — just press `<Tab>` after `git commit -m`."
   homepage "https://github.com/devinjeon/tab-commit-gpt"
-  version "0.1.4"
+  version "0.2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.4/tab-commit-gpt_v0.1.4_darwin_x86_64.tar.gz"
-      sha256 "d804cfb323668c0edbbf29099e3600bbf48236681056a0298b56381bdea08b70"
+      url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.2.0/tab-commit-gpt_v0.2.0_darwin_x86_64.tar.gz"
+      sha256 "24807f506a86288deb9781808da1bf980150b93297d4e04e42f125b68b2c11f4"
 
       def install
         bin.install "tab-commit-gpt"
@@ -18,8 +18,8 @@ class TabCommitGpt < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.4/tab-commit-gpt_v0.1.4_darwin_arm64.tar.gz"
-      sha256 "c516ad3c5000f48314dd3f190ad76b3dee43a01ca14884bf86b4fa1117ca7758"
+      url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.2.0/tab-commit-gpt_v0.2.0_darwin_arm64.tar.gz"
+      sha256 "5e1259d9d08ef6eccc62628c2186a428d8b7a101388fee9dc68e5465e8818ef9"
 
       def install
         bin.install "tab-commit-gpt"
@@ -31,8 +31,8 @@ class TabCommitGpt < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.4/tab-commit-gpt_v0.1.4_linux_x86_64.tar.gz"
-        sha256 "771dbd9842ef96aee3fe0d87d2c018b47cfe3759126852b7277ff61a800e295d"
+        url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.2.0/tab-commit-gpt_v0.2.0_linux_x86_64.tar.gz"
+        sha256 "8ef170e7e37378874cacc5440a2513d9268b1302e22da87105678c5410207f7f"
 
         def install
           bin.install "tab-commit-gpt"
@@ -42,8 +42,8 @@ class TabCommitGpt < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.4/tab-commit-gpt_v0.1.4_linux_arm64.tar.gz"
-        sha256 "924a2906101e1ca32331a1cfd42c05331a677f49da80bf1d13c0a44639c315ee"
+        url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.2.0/tab-commit-gpt_v0.2.0_linux_arm64.tar.gz"
+        sha256 "07ac632db7795faf99e8003568420232c1180a16f0719a5db9552e0364b58a1c"
 
         def install
           bin.install "tab-commit-gpt"
