@@ -35,8 +35,11 @@ Commit message template:
 * remove articles if necessary
 * Do not include a period at the end of the sentence
 * MUST write *only* one-line commit message
-* If part of the commit message is already written, continue from where it left off (and prefer follow the commit message template if possible)
-* Ensure double quotes are used for strings in the commit message`
+* If part of the commit message is already written, continue from where it left off
+* Should follow the commit message template if possible
+* Follow the maximum specified length, but don't force the sentence to be longer—keep it concise and clear.
+* Include the initial part of the input provided by the user as-is as much as possible, and return the full complete command with it.
+* Ensure double quotes or single quotes are used for strings in the commit message`
 	defaultCommitMessageTemplate = "feat|fix|chore|refactor|test|style|docs|...: some message"
 )
 
