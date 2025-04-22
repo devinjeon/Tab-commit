@@ -47,17 +47,8 @@ brews:
     post_install: |
       zshrc = File.expand_path("~/.zshrc")
       script_line = "source \"#{HOMEBREW_PREFIX}/etc/tab-commit-gpt.zsh\""
-      if File.writable?(zshrc)
-        content = File.read(zshrc) rescue ""
-        unless content.include?(script_line)
-          File.open(zshrc, "a") do |f|
-            f.puts "\n# Added by tab-commit-gpt"
-            f.puts script_line
-          end
-          ohai "Added tab-commit-gpt to ~/.zshrc"
-        end
-      else
-        opoo "~/.zshrc is not writable. Please run the following command to add tab-commit-gpt to your .zshrc:"
-        puts
-        puts "  echo '#{script_line}' >> ~/.zshrc"
-      end
+      ohai "===== [!!! 🚀 ACTION REQUIRED !!!] ====="
+      ohai "Please run the following command to add tab-commit-gpt to your .zshrc:"
+      puts
+      puts "  echo '#{script_line}' >> ~/.zshrc"
+      ohai "========================================"
