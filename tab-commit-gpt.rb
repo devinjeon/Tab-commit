@@ -5,12 +5,12 @@
 class TabCommitGpt < Formula
   desc "tab-commit-gpt is a simplest way to generate commit messages — just press `<Tab>` after `git commit -m`."
   homepage "https://github.com/devinjeon/tab-commit-gpt"
-  version "0.1.3"
+  version "0.1.4"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.3/tab-commit-gpt_v0.1.3_darwin_x86_64.tar.gz"
-      sha256 "f147eda946e801fa9641455e5aaa7de9d59179549feb689480425c1e8580c376"
+      url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.4/tab-commit-gpt_v0.1.4_darwin_x86_64.tar.gz"
+      sha256 "d804cfb323668c0edbbf29099e3600bbf48236681056a0298b56381bdea08b70"
 
       def install
         bin.install "tab-commit-gpt"
@@ -18,8 +18,8 @@ class TabCommitGpt < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.3/tab-commit-gpt_v0.1.3_darwin_arm64.tar.gz"
-      sha256 "51f71e041af56073820a793623dcfeca35c72f778ce4e5e65f280c1c6f461ac4"
+      url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.4/tab-commit-gpt_v0.1.4_darwin_arm64.tar.gz"
+      sha256 "c516ad3c5000f48314dd3f190ad76b3dee43a01ca14884bf86b4fa1117ca7758"
 
       def install
         bin.install "tab-commit-gpt"
@@ -31,8 +31,8 @@ class TabCommitGpt < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.3/tab-commit-gpt_v0.1.3_linux_x86_64.tar.gz"
-        sha256 "3f8a054779fd4969384dd2204bed5a45a41a34e302b0eca624599af5079a3654"
+        url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.4/tab-commit-gpt_v0.1.4_linux_x86_64.tar.gz"
+        sha256 "771dbd9842ef96aee3fe0d87d2c018b47cfe3759126852b7277ff61a800e295d"
 
         def install
           bin.install "tab-commit-gpt"
@@ -42,8 +42,8 @@ class TabCommitGpt < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.3/tab-commit-gpt_v0.1.3_linux_arm64.tar.gz"
-        sha256 "5a8d5e7f22bdd61b6193102241fee6876b78cdb3b39afe64376d60b8207ad1c7"
+        url "https://github.com/devinjeon/tab-commit-gpt/releases/download/v0.1.4/tab-commit-gpt_v0.1.4_linux_arm64.tar.gz"
+        sha256 "924a2906101e1ca32331a1cfd42c05331a677f49da80bf1d13c0a44639c315ee"
 
         def install
           bin.install "tab-commit-gpt"
@@ -56,19 +56,10 @@ class TabCommitGpt < Formula
   def post_install
     zshrc = File.expand_path("~/.zshrc")
     script_line = "source \"#{HOMEBREW_PREFIX}/etc/tab-commit-gpt.zsh\""
-    if File.writable?(zshrc)
-      content = File.read(zshrc) rescue ""
-      unless content.include?(script_line)
-        File.open(zshrc, "a") do |f|
-          f.puts "\n# Added by tab-commit-gpt"
-          f.puts script_line
-        end
-        ohai "Added tab-commit-gpt to ~/.zshrc"
-      end
-    else
-      opoo "~/.zshrc is not writable. Please run the following command to add tab-commit-gpt to your .zshrc:"
-      puts
-      puts "  echo '#{script_line}' >> ~/.zshrc"
-    end
+    ohai "===== [!!! 🚀 ACTION REQUIRED !!!] ====="
+    ohai "Please run the following command to add tab-commit-gpt to your .zshrc:"
+    puts
+    puts "  echo '#{script_line}' >> ~/.zshrc"
+    ohai "========================================"
   end
 end
